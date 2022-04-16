@@ -1,0 +1,32 @@
+{
+  "name": "interface",
+  "version": "0.0.1",
+  "description": "interface",
+  "main": "./dist/index.js",
+  "engines": {
+    "node": "10.x"
+  },
+  "dependencies": {
+    "ethereumjs-util": "^7.0.9",
+    "firebase-admin": "^10.0.2",
+    "ipfs-api": "^26.1.2",
+    "md5": "^2.3.0",
+    "merkletreejs": "^0.2.16",
+    "web3": "^1.3.4",
+    "web3-eth-contract": "^1.3.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.7",
+    "chai": "^4.3.4",
+    "mocha": "^8.2.1"
+  },
+  "scripts": {
+    "postinstall": "rm -rf dist && mkdir dist && npx babel src --out-dir dist",
+    "test": "mocha --require babel-core/register --require babel-polyfill --recursive --exit",
+    "build": "npm run postinstall",
+    "dev": "babel-watch src/index.js"
+  }
+}
