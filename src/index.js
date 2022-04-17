@@ -7,7 +7,7 @@ import NotificationModuleListener from './events/NotificationModuleListner';
 
 new CryptoBoy(config.rpcEndpoint,config.ERC721Contract);
 new ERC721Listner(config.rpcEndpoint,config.ERC721Contract);
-// new NotificationModuleListener(config.NotificationModuleContract);
+new NotificationModuleListener(config.NotificationModuleContract);
 // getContractList().then((res) => {
 //     console.log(res);
 

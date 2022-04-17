@@ -30,15 +30,17 @@ export default class CryptoBoy {
         CryptoBoyNFT.getPastEvents( 'Transfer',
         {
             // filter: {myIndexedParam: [20,23], myOtherIndexedParam: '0x123456789...'}, // Using an array means OR: e.g. 20 or 23
-            fromBlock: 25949635,
+            fromBlock: 25955850,
             toBlock: 'latest'
         }
         , (error, events) => {
+            if(events) {
+                events.forEach(element => {
+                    this.notifyToSubscriber( 'New NFT Minted', 'from address : ' + element.address + 'and the tx Hash is:' + element.transactionHash );
+                    console.log(element);
+                });
+            }
 
-            events.forEach(element => {
-                this.notifyToSubscriber( 'New NFT Minted', 'from address : ' + element.address + 'and the tx Hash is:' + element.transactionHash );
-                console.log(element);
-            });
          })
         }
 }
